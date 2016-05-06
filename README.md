@@ -7,7 +7,7 @@ Example showcasing usage of node-sass-import module
 ## Install
 
 ```sh
-$ npm install @abco/node-sass-import-example --save 
+$ npm install node-sass-import-example --save-dev
 ```
 
 ## Usage
@@ -16,7 +16,7 @@ This package can be imported/required like any npm package so long as the final 
 The example `.scss` file
 
 ```scss
-@import '@abco/node-sass-import-example';
+@import 'node-sass-import-example';
 ```
 The example `.html` file
 
@@ -44,8 +44,6 @@ Running the last command(#6) will **automatically**
  * TAG both the package.json and the stash repo,
  * UPDATE the dependencies in package.json, and
  * PUSH your changes up to the repo.
-
-*Relax, go grab a cup of coffee, bamboo will automatically build and push your new version to npm*
 
 ## License
 

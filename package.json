@@ -1,0 +1,51 @@
+{
+  "name": "node-sass-import-example",
+  "version": "1.0.0",
+  "description": "Example showcasing usage of node-sass-import module",
+  "bugs": "https://github.com/anarh/node-sass-import-example/issues",
+  "author": "Addo Narh <eanarh@gmail.com>",
+  "license": "MIT",
+  "main": "index.scss",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/anarh/node-sass-import-example"
+  },
+  "keywords": [
+    "node-sass-import-example",
+    "node-sass",
+    "node-sass-import",
+    "sass",
+    "scss",
+    "css"
+  ],
+  "dependencies": {
+    "newsapps-styles": "^1.1.0"
+  },
+  "devDependencies": {
+    "clean-css": "^3.4.9",
+    "gaze-cli": "^0.2.0",
+    "mocha": "^2.4.5",
+    "mocha-bamboo-reporter": "^1.1.0",
+    "node-sass": "^3.4.2",
+    "node-sass-import": "^1.0.0",
+    "npm-run-all": "^1.5.1",
+    "sass-lint": "^1.4.0",
+    "semistandard": "^7.0.5"
+  },
+  "scripts": {
+    "start": "npm run test:watch",
+    "lint": "npm-run-all lint:*",
+    "lint:js": "semistandard",
+    "lint:css": "sass-lint 'src/**/*.scss' -v",
+    "test": "mocha",
+    "test:watch": "gaze 'npm test' 'test/**/*.js'",
+    "build": "npm-run-all build:css",
+    "build:css": "npm-run-all build:css:*",
+    "build:css:example": "node-sass example/index.scss example/index.build.css --importer node_modules/node-sass-import",
+    "build:css:dist": "node-sass index.scss dist/index.css --importer node_modules/node-sass-import",
+    "postbuild:css:dist": "cleancss dist/index.css -o dist/index.min.css",
+    "postversion": "git push --tags origin HEAD",
+    "prepublish": "npm-run-all lint test build:css:dist",
+    "preversion": "npm-run-all lint test build:css && npm update --save"
+  }
+}

@@ -19,7 +19,7 @@
     "css"
   ],
   "dependencies": {
-    "newsapps-styles": "1.1.0"
+    "newsapps-styles": "2.0.1"
   },
   "devDependencies": {
     "clean-css": "4.1.9",
